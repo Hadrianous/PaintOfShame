@@ -1,0 +1,15 @@
+services:
+  shame-db:
+      image: postgres:16.2-alpine
+      environment:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: "!shame!"
+          POSTGRES_DB: shame
+          PGDATA: /var/lib/postgresql/data/pgdata
+      ports:
+          - "5432:5432"
+      volumes:
+          - ./data:/var/lib/postgresql/data
+
+volumes:
+  shame-db-data:
